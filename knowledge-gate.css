@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: lighter;
+  box-sizing: border-box;
+}
+
+body {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 270px 0 80px 0;
+  font-family: sans-serif;
+}
+
+ul {
+  text-align: right;
+  list-style-type: none;
+}
+
+li {
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  position: fixed;
+  font-size: 50px;
+  padding: 30px 40px;
+  justify-content: space-between;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul a {
+  padding-bottom: 10px;
+}
+
+nav ul li:nth-child(1) a {
+  color: #6186ff;
+}
+
+nav ul li:nth-child(2) a {
+  color: #c7c7c7;
+}
+
+nav ul li:nth-child(3) a {
+  color: #baff75;
+}
+
+header {
+  width: 100%;
+  height: 58px;
+  padding: 20px 0;
+  margin: 0 100px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+img {
+  width: calc(100% / 3);
+}
+
+section {
+  display: flex;
+  padding: 100px;
+}
+
+section:nth-of-type(1) {
+  padding: 0;
+  width: 100%;
+}
+
+section:nth-of-type(2) {
+  width: 100%;
+  flex-direction: column;
+  background-color: #6186ff;
+}
+
+section:nth-of-type(3) {
+  width: 50%;
+  flex-direction: column;
+  background-color: #c7c7c7;
+}
+
+section:nth-of-type(4) {
+  width: 50%;
+  min-height: 450px;
+  flex-direction: column;
+  background-color: #baff75;
+}
+
+section:nth-of-type(5) {
+  width: 100%;
+  flex-direction: column;
+}
+
+section:nth-of-type(5) h2 {
+  color: black;
+}
+
+h1 {
+  width: 100%;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 65px 100px 80px 100px;
+}
+
+h2 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  margin-top: 25px;
+  border-radius: 0;
+  font-family: sans-serif;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  color: rgba(50, 50, 50);
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+section:nth-of-type(4) button {
+  align-self: flex-end;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  padding: 30px 0;
+  line-height: 25px;
+  border-top: 1px solid grey;
+  margin: 120px 100px 0 100px;
+  justify-content: space-between;
+}
+
+footer ul {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+  text-decoration: underline;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+/* Fade-in + slide-up animation for chat messages */
+@keyframes messageAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to each message */
+.message {
+  animation: messageAppear 0.6s ease-out;
+  padding: 12px 18px;
+  margin: 10px 0;
+  border-radius: 18px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Bot messages styling */
+.message.bot {
+  background: linear-gradient(135deg, #ff9ff3, #feca57);
+  color: #fff;
+  align-self: flex-start;
+}
+
+/* User messages styling */
+.message.user {
+  background: linear-gradient(135deg, #48dbfb, #1dd1a1);
+  color: #fff;
+  align-self: flex-end;
+}
+
+/* Smooth container scroll */
+#messages {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 500px;
+  padding: 15px;
+  scroll-behavior: smooth;
+}
+.stage {
+  background: linear-gradient(135deg, #ffedf0, #ffe4f8);
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.images {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.images img {
+  width: 200px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  animation: fadeInZoomShake 1s forwards;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.images img:nth-child(1) { animation-delay: 0.2s; }
+.images img:nth-child(2) { animation-delay: 0.5s; }
+.images img:nth-child(3) { animation-delay: 0.8s; }
+
+.images img:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 25px 35px rgba(0,0,0,0.6);
+}
+
+/* 이미지 등장 + 흔들림 애니메이션 */
+@keyframes fadeInZoomShake {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.05) rotate(-3deg);
+  }
+  70% {
+    transform: translateY(5px) scale(1.02) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+/* 깜빡이는 조명 효과 */
+@keyframes stageLights {
+  0%, 100% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+}
+
+.stage::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,200,255,0.3), rgba(255,255,255,0.2));
+  animation: stageLights 3s linear infinite;
+}
